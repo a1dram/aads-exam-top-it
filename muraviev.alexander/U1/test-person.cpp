@@ -25,7 +25,7 @@ BOOST_AUTO_TEST_CASE(reject_empty_description)
 {
   muraviev::Person person;
 
-  BOOST_TEST(!muraviev::parsePersonLine("42 \t ", person));
+  BOOST_TEST(!muraviev::parsePersonLine("42 \t\r\v\f", person));
 }
 
 BOOST_AUTO_TEST_CASE(read_unique_people_in_order)

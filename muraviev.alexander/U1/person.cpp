@@ -6,6 +6,12 @@
 
 namespace muraviev
 {
+  bool isDescriptionSeparator(const char symbol)
+  {
+    return symbol == ' ' || symbol == '\t' || symbol == '\r' ||
+        symbol == '\v' || symbol == '\f';
+  }
+
   void initList(PersonList& list)
   {
     list.head = nullptr;
@@ -74,7 +80,7 @@ namespace muraviev
     }
 
     while (position < line.size() &&
-        (line[position] == ' ' || line[position] == '\t'))
+        isDescriptionSeparator(line[position]))
     {
       ++position;
     }
