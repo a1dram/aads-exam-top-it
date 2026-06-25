@@ -19,6 +19,34 @@ namespace muraviev
     list.tail = nullptr;
   }
 
+  bool hasPersonId(const PersonList& list, const size_t id)
+  {
+    PersonNode* current = list.head;
+    while (current != nullptr)
+    {
+      if (current->person.id == id)
+      {
+        return true;
+      }
+      current = current->next;
+    }
+    return false;
+  }
+
+  void appendPerson(PersonList& list, const Person& person)
+  {
+    PersonNode* const node = new PersonNode{person, nullptr};
+    if (list.tail == nullptr)
+    {
+      list.head = node;
+    }
+    else
+    {
+      list.tail->next = node;
+    }
+    list.tail = node;
+  }
+
   bool parsePersonLine(const std::string& line, Person& person)
   {
     if (line.empty() || line[0] < '0' || line[0] > '9')
