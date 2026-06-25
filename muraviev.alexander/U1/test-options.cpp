@@ -36,3 +36,36 @@ BOOST_AUTO_TEST_CASE(reject_repeated_input)
 
   BOOST_TEST(!muraviev::parseProgramOptions(3, argv, options));
 }
+
+BOOST_AUTO_TEST_CASE(reject_repeated_output)
+{
+  char program[] = "lab";
+  char first[] = "out:a.txt";
+  char second[] = "out:b.txt";
+  char* argv[] = {program, first, second};
+  muraviev::ProgramOptions options;
+
+  BOOST_TEST(!muraviev::parseProgramOptions(3, argv, options));
+}
+
+BOOST_AUTO_TEST_CASE(reject_empty_file_name)
+{
+  char program[] = "lab";
+  char argument[] = "in:";
+  char* argv[] = {program, argument};
+  muraviev::ProgramOptions options;
+
+  BOOST_TEST(!muraviev::parseProgramOptions(2, argv, options));
+}
+
+BOOST_AUTO_TEST_CASE(accept_same_input_and_output_name)
+{
+  char program[] = "lab";
+  char input[] = "in:data.txt";
+  char output[] = "out:data.txt";
+  char* argv[] = {program, input, output};
+  muraviev::ProgramOptions options;
+
+  BOOST_TEST(muraviev::parseProgramOptions(3, argv, options));
+  BOOST_TEST(options.inputName == options.outputName);
+}
