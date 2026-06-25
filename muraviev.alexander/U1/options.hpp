@@ -1,6 +1,7 @@
 #ifndef OPTIONS_HPP
 #define OPTIONS_HPP
 
+#include <cstddef>
 #include <string>
 
 namespace muraviev
@@ -13,7 +14,7 @@ namespace muraviev
     std::string outputName;
   };
 
-  bool parseProgramOptions(int argc, char** argv, ProgramOptions& options);
+  bool parseProgramOptions(size_t argc, char** argv, ProgramOptions& options);
 }
 
 #endif
