@@ -24,6 +24,33 @@ namespace muraviev
     PersonNode* head;
     PersonNode* tail;
   };
+
+  struct Meeting
+  {
+    size_t first;
+    size_t second;
+    size_t time;
+  };
+
+  struct MeetingNode
+  {
+    Meeting meeting;
+    MeetingNode* next;
+  };
+
+  struct MeetingList
+  {
+    MeetingNode* head;
+    MeetingNode* tail;
+  };
+
+  struct ProgramOptions
+  {
+    bool hasPersonsFile;
+    bool hasDataFile;
+    std::string personsFile;
+    std::string dataFile;
+  };
 }
 
 #endif
