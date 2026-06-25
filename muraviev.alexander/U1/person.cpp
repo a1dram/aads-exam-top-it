@@ -17,6 +17,11 @@ namespace muraviev
       id = id * 10 + digit;
       ++position;
     }
+    while (position < line.size() &&
+        (line[position] == ' ' || line[position] == '\t'))
+    {
+      ++position;
+    }
     person.id = id;
     person.info = line.substr(position);
     return true;
