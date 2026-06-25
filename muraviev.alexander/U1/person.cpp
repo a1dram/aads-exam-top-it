@@ -85,7 +85,8 @@ namespace muraviev
     while (std::getline(input, line))
     {
       Person person;
-      if (!parsePersonLine(line, person))
+      if (!parsePersonLine(line, person) ||
+          hasPersonId(persons, person.id))
       {
         ++ignored;
       }
