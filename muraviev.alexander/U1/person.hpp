@@ -32,6 +32,7 @@ namespace muraviev
   bool parsePersonLine(const std::string& line, Person& person);
   void readPersons(std::istream& input, PersonList& persons,
       size_t& accepted, size_t& ignored);
+  void printPersons(std::ostream& output, const PersonList& persons);
 }
 
 #endif

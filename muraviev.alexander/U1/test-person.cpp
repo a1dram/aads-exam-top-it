@@ -46,3 +46,17 @@ BOOST_AUTO_TEST_CASE(read_unique_people_in_order)
   BOOST_TEST(persons.head->next->next == nullptr);
   muraviev::clearList(persons);
 }
+
+BOOST_AUTO_TEST_CASE(print_people)
+{
+  muraviev::PersonList persons;
+  muraviev::initList(persons);
+  muraviev::appendPerson(persons, muraviev::Person{5, "five"});
+  muraviev::appendPerson(persons, muraviev::Person{8, "eight"});
+  std::ostringstream output;
+
+  muraviev::printPersons(output, persons);
+
+  BOOST_TEST(output.str() == "5 five\n8 eight\n");
+  muraviev::clearList(persons);
+}

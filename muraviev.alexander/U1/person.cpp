@@ -1,6 +1,7 @@
 #include "person.hpp"
 
 #include <istream>
+#include <ostream>
 
 namespace muraviev
 {
@@ -95,6 +96,16 @@ namespace muraviev
         appendPerson(persons, person);
         ++accepted;
       }
+    }
+  }
+
+  void printPersons(std::ostream& output, const PersonList& persons)
+  {
+    PersonNode* current = persons.head;
+    while (current != nullptr)
+    {
+      output << current->person.id << ' ' << current->person.info << '\n';
+      current = current->next;
     }
   }
 }

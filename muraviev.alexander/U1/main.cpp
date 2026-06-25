@@ -16,13 +16,7 @@ int main(int argc, char** argv)
   size_t accepted = 0;
   size_t ignored = 0;
   muraviev::readPersons(std::cin, persons, accepted, ignored);
-
-  muraviev::PersonNode* current = persons.head;
-  while (current != nullptr)
-  {
-    std::cout << current->person.id << ' ' << current->person.info << '\n';
-    current = current->next;
-  }
+  muraviev::printPersons(std::cout, persons);
   std::cerr << accepted << ' ' << ignored << '\n';
   muraviev::clearList(persons);
   return 0;
